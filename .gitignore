@@ -1,0 +1,6 @@
+文章.md
+分镜脚本.md
+/out/
+/.mimocode/
+/__pycache__/
+*.xlsx

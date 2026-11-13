@@ -1,0 +1,30 @@
+{
+ "input": {
+  "rows": 500000,
+  "cols": 83,
+  "seed": 20261113,
+  "strings": "every string cell independently random (zero repetition)"
+ },
+ "env": {
+  "python": "3.12.14",
+  "pandas": "3.0.1"
+ },
+ "build_df_s": 5.27,
+ "results": [
+  {
+   "method": "pandas.to_excel 默认引擎",
+   "write_s": 434.9,
+   "file_mb": 323.5
+  },
+  {
+   "method": "pandas.to_excel engine=openpyxl",
+   "write_s": 547.4,
+   "file_mb": 323.2
+  },
+  {
+   "method": "fastxlsx",
+   "write_s": 138.43,
+   "file_mb": 291.8
+  }
+ ]
+}

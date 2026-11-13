@@ -1,0 +1,26 @@
+{
+ "input": {
+  "file": "sample_96125x83.xlsx",
+  "rows": 96125,
+  "cols": 83,
+  "read_s": 64.51
+ },
+ "env": {
+  "python": "3.9.12",
+  "pandas": "2.2.2",
+  "pandas_default_engine": "由环境里装的库决定，看这条 traceback"
+ },
+ "build_df_s": 0.57,
+ "results": [
+  {
+   "method": "pandas.to_excel（老方法）",
+   "write_s": 94.86,
+   "file_mb": 61.7
+  },
+  {
+   "method": "fastxlsx.write_xlsx（新方法）",
+   "write_s": 16.61,
+   "file_mb": 55.2
+  }
+ ]
+}
