@@ -3,5 +3,6 @@
 /out/
 /.mimocode/
 /__pycache__/
+/video/
 *.xlsx
-/assets/
+git rm -r --cached assets
