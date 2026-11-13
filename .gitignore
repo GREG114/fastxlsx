@@ -4,5 +4,5 @@
 /.mimocode/
 /__pycache__/
 /video/
+/assets/
 *.xlsx
-git rm -r --cached assets
