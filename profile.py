@@ -3,22 +3,27 @@
 这是唯一会碰到你原始数据的一步。shape.json 里只有计数（每列类型计数、字符串长度分布、
 distinct 值数、空值计数、日期分布、正负号分布），没有任何业务内容。
 生成脚本不再需要这个文件。
+
+用法：python profile.py <原始报表.xlsx路径>
 """
 
 import datetime
 import json
 import os
+import sys
 from collections import Counter
 
 import openpyxl
 
-SRC = r'C:\Users\admin\Desktop\data\财务每月报表_业务_2026-07_20261109115102.xlsx'
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DATE = datetime.date(2026, 1, 1)
 
 
 def main():
-    ws = openpyxl.load_workbook(SRC, read_only=True).active
+    if len(sys.argv) < 2:
+        raise SystemExit('用法: python profile.py <原始报表.xlsx路径>')
+    src = sys.argv[1]
+    ws = openpyxl.load_workbook(src, read_only=True).active
     header = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
     spec = [{'name': header[i], 'counts': Counter(), 'str_len': Counter(),
              'distinct_str_len': Counter(), 'num_cell': Counter(), 'num_distinct': Counter(),

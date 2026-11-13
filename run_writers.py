@@ -123,7 +123,6 @@ def write_with(method, grid, names, path, df=None):
                     ws.write_number(r, c, v)
         wb.close()
     elif method == 'fastxlsx':
-        sys.path.insert(0, r'C:\Data\Jask\technology\定期任务\财务报表')
         import fastxlsx
         fastxlsx.write_xlsx(df, path)
     return time.time() - t0
